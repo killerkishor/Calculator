@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript calculator</title>
+
+	<style type="text/css">
+		button {
+			width: 40px;
+		    height: 40px;
+		    border-radius: 40px;
+		    margin: 2px;
+		    cursor: pointer;
+		}
+		.display_class {
+			height: 30px;
+		    width: 180px;
+		    border: 1px solid #333;
+		    margin-left: 5px;
+		    margin-bottom: 5px;
+		}
+		.display_class p {
+			margin-top: 6px;
+    		margin-left: 6px;
+    		margin-right: 6px;
+    		margin-bottom: 6px;
+    		text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator_class" name="calc" id="calc">
+		<div class="display_class">
+			<p id="display" name="display"></p>
+		</div>
+		<div class="row">
+			<button name="one" value="1" onclick="getvalue1()">1</button>
+			<button name="two" value="2" onclick="getvalue2()">2</button>
+			<button name="three" value="3" onclick="getvalue3()">3</button>
+			<button name="plus" value="+" onclick="getvalueplus()">+</button>
+		</div>
+		<div class="row">
+			<button name="four" value="4" onclick="getvalue4()">4</button>
+			<button name="five" value="5" onclick="getvalue5()">5</button>
+			<button name="six" value="6" onclick="getvalue6()">6</button>
+			<button name="sub" value="-" onclick="getvaluesub()">-</button>
+		</div>
+		<div class="row">
+			<button name="seven" value="7" onclick="getvalue1()">7</button>
+			<button name="eight" value="8" onclick="getvalue1()">8</button>
+			<button name="nine" value="9" onclick="getvalue1()">9</button>
+			<button name="multiplex" value="*" onclick="getvaluemulti()">x</button>
+		</div>
+		<div class="row">
+			<button id="clear" name="clear" value="c" onclick="getvalueclear()">C</button>
+			<button name="zero" value="0" onclick="getvalue0()">0</button>
+			<button name="equal" value="=" onclick="getvalueequal()">=</button>
+			<button name="divid1" value="/" onclick="getvaluedivide()">/</button>
+		</div>
+	</div>
+
+
+	
+
+	<script type="text/javascript">
+		function getvalue1() {
+			document.getElementById("display").innerHTML += '1';
+		}
+		function getvalue2() {
+			document.getElementById("display").innerHTML += '2';
+		}
+		function getvalue3() {
+			document.getElementById("display").innerHTML += '3';
+		}
+		function getvalue4() {
+			document.getElementById("display").innerHTML += '4';
+		}
+		function getvalue5() {
+			document.getElementById("display").innerHTML += '5';
+		}
+		function getvalue6() {
+			document.getElementById("display").innerHTML += '6';
+		}
+		function getvalue7() {
+			document.getElementById("display").innerHTML += '7';
+		}
+		function getvalue8() {
+			document.getElementById("display").innerHTML += '8';
+		}
+		function getvalue9() {
+			document.getElementById("display").innerHTML += '9';
+		}
+		function getvalue0() {
+			document.getElementById("display").innerHTML += '0';
+		}
+		function getvalueclear() {
+			document.getElementById("display").innerHTML = '';
+		}
+		function getvalueplus() {
+			document.getElementById("display").innerHTML += '+';
+		}
+		function getvaluesub() {
+			document.getElementById("display").innerHTML += '-';
+		}
+		function getvaluemulti() {
+			document.getElementById("display").innerHTML += '*';
+		}
+		function getvaluedivide() {
+			document.getElementById("display").innerHTML += '/';
+		}
+		function getvalueequal() {
+			var answer = document.getElementById("display").innerHTML;
+			document.getElementById("display").innerHTML = eval(answer);
+		}
+	</script>
+
+</body>
+</html>
