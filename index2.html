@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript calculator</title>
+
+	<style type="text/css">
+		button {
+			width: 40px;
+		    height: 40px;
+		    border-radius: 40px;
+		    margin: 2px;
+		    cursor: pointer;
+		}
+		.display_class {
+			height: 30px;
+		    width: 180px;
+		    border: 1px solid #333;
+		    margin-left: 5px;
+		    margin-bottom: 5px;
+		}
+		.display_class p {
+			margin-top: 6px;
+    		margin-left: 6px;
+    		margin-right: 6px;
+    		margin-bottom: 6px;
+    		text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator_class" name="calc" id="calc">
+		<div class="display_class">
+			<p id="display" name="display"></p>
+		</div>
+		<div class="row">
+			<button name="one" value="1" onclick="getNumberValue(this)">1</button>
+			<button name="two" value="2" onclick="getNumberValue(this)">2</button>
+			<button name="three" value="3" onclick="getNumberValue(this)">3</button>
+			<button name="plus" value="+" onclick="getNumberValue(this)">+</button>
+		</div>
+		<div class="row">
+			<button name="four" value="4" onclick="getNumberValue(this)">4</button>
+			<button name="five" value="5" onclick="getNumberValue(this)">5</button>
+			<button name="six" value="6" onclick="getNumberValue(this)">6</button>
+			<button name="sub" value="-" onclick="getNumberValue(this)">-</button>
+		</div>
+		<div class="row">
+			<button name="seven" value="7" onclick="getNumberValue(this)">7</button>
+			<button name="eight" value="8" onclick="getNumberValue(this)">8</button>
+			<button name="nine" value="9" onclick="getNumberValue(this)">9</button>
+			<button name="multiplex" value="*" onclick="getNumberValue(this)">x</button>
+		</div>
+		<div class="row">
+			<button id="clear" name="clear" value="c" onclick="getvalueclear()">C</button>
+			<button name="zero" value="0" onclick="getNumberValue(this)">0</button>
+			<button name="equal" value="=" onclick="getvalueequal()">=</button>
+			<button name="divid1" value="/" onclick="getNumberValue(this)">/</button>
+		</div>
+	</div>
+
+
+	
+
+	<script type="text/javascript">
+
+		var x = 0;
+		var addbtn = 0;
+		var operatorKeyPressed = 0;
+
+		function getNumberValue(e){
+			getresulthceck(e);
+			var getNumer = e.getAttribute('value');
+
+			if(getNumer == "+" || getNumer == "-" || getNumer == "*" || getNumer == "/"){
+				if(operatorKeyPressed == 1){
+					return false;
+				}
+				operatorKeyPressed = 1;
+			}else{
+				operatorKeyPressed = 0;
+			}
+
+			var getFirstNo = document.getElementById("display").innerHTML;
+			//console.log(getFirstNo.length);
+			if(getFirstNo.length == 0){
+				if(getNumer == "*" || getNumer == "/"){
+					return false;
+				}
+			}
+
+			document.getElementById("display").innerHTML += getNumer;
+		}
+
+		/*function getvalue1(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '1';
+		}
+		function getvalue2(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '2';
+		}
+		function getvalue3(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '3';
+		}
+		function getvalue4(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '4';
+		}
+		function getvalue5(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '5';
+		}
+		function getvalue6(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '6';
+		}
+		function getvalue7(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '7';
+		}
+		function getvalue8(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '8';
+		}
+		function getvalue9(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '9';
+		}
+		function getvalue0(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '0';
+		}
+		
+		function getvalueplus(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '+';
+		}
+		function getvaluesub(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '-';
+		}
+		function getvaluemulti(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '*';
+		}
+		function getvaluedivide(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML += '/';
+		}*/
+
+		function getvalueclear(x = 0) {
+			getresulthceck();
+			document.getElementById("display").innerHTML = '';
+		}
+		function getvalueequal() {
+
+			if(operatorKeyPressed == 1){
+				return false;
+			}
+
+			var answer = document.getElementById("display").innerHTML;
+			if(answer == ""){
+				return false;
+			}
+			document.getElementById("display").innerHTML = eval(answer);
+			x = 1;
+		}
+		
+		function getresulthceck(e = null) {
+			var getNumer = '';
+			if(e != null)
+				getNumer = e.getAttribute('value')||'';
+
+			if (x == 1) {
+
+				if(getNumer == "+" || getNumer == "-" || getNumer == "*" || getNumer == "/"){
+					/*if(operatorKeyPressed == 1){
+						return false;
+					}
+					operatorKeyPressed = 1;*/
+				}else{
+					document.getElementById("display").innerHTML = '';
+				}
+				x = 0;
+			}
+		}
+	</script>
+
+</body>
+</html>
