@@ -45,9 +45,9 @@
 			<button name="sub" value="-" onclick="getvaluesub()">-</button>
 		</div>
 		<div class="row">
-			<button name="seven" value="7" onclick="getvalue1()">7</button>
-			<button name="eight" value="8" onclick="getvalue1()">8</button>
-			<button name="nine" value="9" onclick="getvalue1()">9</button>
+			<button name="seven" value="7" onclick="getvalue7()">7</button>
+			<button name="eight" value="8" onclick="getvalue8()">8</button>
+			<button name="nine" value="9" onclick="getvalue9()">9</button>
 			<button name="multiplex" value="*" onclick="getvaluemulti()">x</button>
 		</div>
 		<div class="row">
@@ -62,54 +62,79 @@
 	
 
 	<script type="text/javascript">
-		function getvalue1() {
+
+		var x = 0;
+
+		function getvalue1(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '1';
 		}
-		function getvalue2() {
+		function getvalue2(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '2';
 		}
-		function getvalue3() {
+		function getvalue3(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '3';
 		}
-		function getvalue4() {
+		function getvalue4(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '4';
 		}
-		function getvalue5() {
+		function getvalue5(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '5';
 		}
-		function getvalue6() {
+		function getvalue6(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '6';
 		}
-		function getvalue7() {
+		function getvalue7(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '7';
 		}
-		function getvalue8() {
+		function getvalue8(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '8';
 		}
-		function getvalue9() {
+		function getvalue9(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '9';
 		}
-		function getvalue0() {
+		function getvalue0(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '0';
 		}
-		function getvalueclear() {
+		function getvalueclear(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML = '';
 		}
-		function getvalueplus() {
+		function getvalueplus(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '+';
 		}
-		function getvaluesub() {
+		function getvaluesub(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '-';
 		}
-		function getvaluemulti() {
+		function getvaluemulti(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '*';
 		}
-		function getvaluedivide() {
+		function getvaluedivide(x = 0) {
+			getresulthceck();
 			document.getElementById("display").innerHTML += '/';
 		}
 		function getvalueequal() {
 			var answer = document.getElementById("display").innerHTML;
 			document.getElementById("display").innerHTML = eval(answer);
+			x = 1;
+		}
+		function getresulthceck() {
+			if (x == 1) {
+				document.getElementById("display").innerHTML = '';
+				x = 0;
+			}
 		}
 	</script>
 
