@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript calculator</title>
+
+	<style type="text/css">
+		button {
+			width: 40px;
+		    height: 40px;
+		    border-radius: 40px;
+		    margin: 2px;
+		    cursor: pointer;
+		}
+		.display_class {
+			height: 30px;
+		    width: 180px;
+		    border: 1px solid #333;
+		    margin-left: 5px;
+		    margin-bottom: 5px;
+		}
+		.display_class p {
+			margin-top: 6px;
+    		margin-left: 6px;
+    		margin-right: 6px;
+    		margin-bottom: 6px;
+    		text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator_class" name="calc" id="calc">
+		<div class="display_class">
+			<p id="display" name="display"></p>
+		</div>
+		<div class="row">
+			<button name="one" value="1" onclick="getNumberValue(this)">1</button>
+			<button name="two" value="2" onclick="getNumberValue(this)">2</button>
+			<button name="three" value="3" onclick="getNumberValue(this)">3</button>
+			<button name="plus" value="+" onclick="getNumberValue(this)">+</button>
+		</div>
+		<div class="row">
+			<button name="four" value="4" onclick="getNumberValue(this)">4</button>
+			<button name="five" value="5" onclick="getNumberValue(this)">5</button>
+			<button name="six" value="6" onclick="getNumberValue(this)">6</button>
+			<button name="sub" value="-" onclick="getNumberValue(this)">-</button>
+		</div>
+		<div class="row">
+			<button name="seven" value="7" onclick="getNumberValue(this)">7</button>
+			<button name="eight" value="8" onclick="getNumberValue(this)">8</button>
+			<button name="nine" value="9" onclick="getNumberValue(this)">9</button>
+			<button name="multiplex" value="*" onclick="getNumberValue(this)">x</button>
+		</div>
+		<div class="row">
+			<button id="clear" name="clear" value="c" onclick="getvalueclear()">C</button>
+			<button name="zero" value="0" onclick="getNumberValue(this)">0</button>
+			<button name="equal" value="=" onclick="getvalueequal()">=</button>
+			<button name="divid1" value="/" onclick="getNumberValue(this)">/</button>
+		</div>
+	</div>
+
+
+	
+
+	<script type="text/javascript">
+
+		var x = 0;
+		var operatorKeyPressed = 0;
+		
+		function getNumberValue(e) {
+			getresulthceck();
+			var getNumber = e.getAttribute('value');
+
+				/*
+			var operators = ["+", "-", "*", "/"];
+
+			//var isGetOpertorVal = operators.includes(getNumber);//return true | false
+
+			//if(isGetOpertorVal){
+			if(operators.includes(getNumber)){
+				if(operatorKeyPressed == 1){
+					return false;
+				}
+				operatorKeyPressed = 1;	
+			}else{
+				operatorKeyPressed = 0;
+			}*/
+
+			if(getNumber == "+" || getNumber == "-" || getNumber == "*" || getNumber == "/"){
+				if(operatorKeyPressed == 1){
+					return false;
+				}
+				operatorKeyPressed = 1;
+			}else{
+				operatorKeyPressed = 0;
+			}
+
+			document.getElementById("display").innerHTML += getNumber;
+		}
+
+		function getvalueclear() {
+			document.getElementById("display").innerHTML = '';
+		}
+
+		function getvalueequal() {
+
+			if(operatorKeyPressed == 1){
+				return false;
+			}
+
+			var answer = document.getElementById("display").innerHTML;
+			document.getElementById("display").innerHTML = eval(answer);
+			x = 1;
+		}
+
+		function getresulthceck() {
+			// if (x == 1) {
+			// 	document.getElementById("display").innerHTML = "";
+			// 	x = 0;
+			// }
+
+			// if(getNumber == "+" || getNumber == "-" || getNumber == "*" || getNumber == "/"){
+			// 	if(operatorKeyPressed == 1){
+			// 		return false;
+			// 	}
+			// 	operatorKeyPressed = 1;
+			// }else{
+			// 	operatorKeyPressed = 0;
+			// }
+		}
+
+	</script>
+
+</body>
+</html>
